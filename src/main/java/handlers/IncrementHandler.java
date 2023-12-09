@@ -20,7 +20,7 @@ public final class IncrementHandler extends RouteHandler {
     }
 
     @Override
-    protected @Nullable IntoResponse handleRoute(
+    protected HtmlResponse handleRoute(
             Matcher matcher,
             Request request
     ) {
