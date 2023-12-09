@@ -11,7 +11,9 @@ public record Counter(
     @Override
     public Html toHtml() {
         return HTML."""
-                <h2> The current count is \{value} </h2>
+                <p class="block text-gray-500 font-bold md:text-left mb-1 md:mb-0 pr-4">
+                  The current count is \{value}
+                </p>
                 """;
     }
 }

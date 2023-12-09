@@ -1,6 +1,7 @@
 package handlers;
 
 import components.Counter;
+import components.Page;
 import dev.mccue.microhttp.handler.IntoResponse;
 import dev.mccue.microhttp.handler.RouteHandler;
 import dev.mccue.microhttp.html.HtmlResponse;
@@ -26,22 +27,28 @@ public final class IndexHandler extends RouteHandler {
             Matcher matcher,
             Request request
     ) {
-        return new HtmlResponse(HTML."""
-                <html>
-                  <head>
-                    <script src="https://unpkg.com/htmx.org@1.9.9"></script>
-                  </head>
-
-                  <body>
-                    <div id="counter">
-                      \{ new Counter(count.get()) }
-                    </div>
-                    <button hx-post="/increment" hx-swap="innerHTML" hx-target="#counter"> Increment </button>
-                    <button hx-post="/decrement" hx-swap="innerHTML" hx-target="#counter"> Decrement </button>
-                    <button hx-post="/set_zero" hx-swap="innerHTML" hx-target="#counter"> Set to zero </button>
-                  </body>
-                </html>
-
-                """);
+        return new HtmlResponse(new Page(HTML."""
+                <div id="counter">
+                  \{ new Counter(count.get()) }
+                </div>
+               <button hx-post="/increment"
+                        hx-swap="innerHTML"
+                        hx-target="#counter"
+                        class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-2 rounded">
+                  Increment
+                </button>
+                <button hx-post="/decrement"
+                        hx-swap="innerHTML"
+                        hx-target="#counter"
+                        class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-2 rounded">
+                  Decrement
+                </button>
+                <button hx-post="/set_zero"
+                        hx-swap="innerHTML"
+                        hx-target="#counter"
+                        class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-2 rounded">
+                  Set to zero
+                </button>
+                """));
     }
 }
