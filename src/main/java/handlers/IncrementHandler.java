@@ -1,10 +1,8 @@
 package handlers;
 
 import components.Counter;
-import dev.mccue.microhttp.handler.IntoResponse;
 import dev.mccue.microhttp.handler.RouteHandler;
 import dev.mccue.microhttp.html.HtmlResponse;
-import org.jspecify.annotations.Nullable;
 import org.microhttp.Request;
 
 import java.util.concurrent.atomic.AtomicInteger;
